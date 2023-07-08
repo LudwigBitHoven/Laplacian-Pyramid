@@ -1,5 +1,71 @@
-<Layout>:
-	MDBoxLayout:
-		size_hint_x: None
-		adaptive_height: True
-		orientation: 'vertical'
+#:import utils kivy.utils
+
+<MainLayout>:
+	cols: 2
+	rows: 1
+	GridLayout:
+		id: working_layout
+		cols: 1
+		rows: 2
+		canvas.before:
+			Color:
+				rgb: utils.get_color_from_hex('#AAAAAA')
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		MDBoxLayout:
+			id: image_panel
+			size_hint: 1, .5
+			padding: dp(18)
+			canvas.before:
+				Color:
+					rgb: utils.get_color_from_hex('#BBBBBB')
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			MainImg:
+				id: img_frame
+		MDBoxLayout:
+			id: button_panel
+			size_hint: 1, .5
+			padding: dp(18)
+			spacing: dp(18)
+			cols: 3
+			canvas.before:
+				Color:
+					rgb: utils.get_color_from_hex('#CCCCCC')
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			TextBoxLogin:
+				pos_hint: {'top': 1}
+				TxtInput:
+					hint_text: 'Sigma value'
+			TextBoxLogin:
+				pos_hint: {'top': 1}
+				TxtInput:
+					hint_text: 'Number of layers'
+			MDRoundFlatIconButton:
+				pos_hint: {'top': 1}
+				md_bg_color: 'CBB4D6'
+				line_color: 'CBB4D6'
+			    text_color: 'FFFFFF'
+			    icon_color: 'FFFFFF'
+				icon: 'auto-fix'
+				text: 'Laplasify'
+				font_size: '18dp'
+				on_press: app.BuildPyramid()
+	ScrollView:
+		size_hint: 0.5, 1
+		canvas.before:
+			Color:
+				rgb: utils.get_color_from_hex('#DDDDDD')
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		MDBoxLayout:
+			id: result_scroll
+			adaptive_height: True
+			orientation: 'vertical'
+			padding: dp(18)
+			spacing: dp(18)

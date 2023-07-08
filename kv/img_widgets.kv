@@ -1,0 +1,35 @@
+#:import utils kivy.utils
+
+<ImgWidget>:
+	size_hint_y: None
+	height: self.width * 0.5
+	radius: dp(18)
+	md_bg_color: utils.get_color_from_hex('#CBB4D6')
+
+<MainImg@ImgWidget>:
+	radius: dp(18)
+	md_bg_color: utils.get_color_from_hex('#CBB4D6')
+	Image:
+		id: img
+		source: 'sample.jpg'
+		mipmap: True
+		radius: dp(18)
+
+<TextBoxLogin@MDCard>:
+    md_bg_color: utils.get_color_from_hex('#CBB4D6')
+    padding: ['9dp', 0, '9dp', 0]
+    size_hint: 0.7, None
+    height: '40dp'
+
+<TxtInput@TextInput>:
+    pos_hint: {'center_y': 0.5}
+    font_size: '18dp'
+    size_hint_y: None
+    height: self.minimum_height
+    line_color_normal: 0, 0, 0, 0
+    line_color_focus: 0, 0, 0, 0
+    color_mode: "custom"
+    background_color: 1, 0, 0, 0
+    multiline: False
+    foreground_color: 1, 1, 1, 1
+    hint_text_color: 1, 1, 1, 1
