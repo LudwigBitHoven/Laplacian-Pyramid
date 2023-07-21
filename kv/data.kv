@@ -3,14 +3,23 @@
 <MainLayout>:
 	cols: 2
 	rows: 1
+	padding: dp(9)
+	spacing: dp(9)
+	canvas.before:
+		Color:
+			rgb: utils.get_color_from_hex('#B4B4B4')
+		Rectangle:
+			pos: self.pos
+			size: self.size
 	GridLayout:
 		id: working_layout
 		cols: 1
 		rows: 2
+		spacing: dp(9)
 		canvas.before:
 			Color:
-				rgb: utils.get_color_from_hex('#AAAAAA')
-			Rectangle:
+				rgb: utils.get_color_from_hex('#B4B4B4')
+			RoundedRectangle:
 				pos: self.pos
 				size: self.size
 		MDBoxLayout:
@@ -19,32 +28,41 @@
 			padding: dp(18)
 			canvas.before:
 				Color:
-					rgb: utils.get_color_from_hex('#BBBBBB')
-				Rectangle:
+					rgb: utils.get_color_from_hex('#F4F0F6')
+				RoundedRectangle:
 					pos: self.pos
 					size: self.size
+					radius: [dp(18), dp(18), dp(18), dp(18)]
 			MainImg:
 				id: img_frame
-		MDBoxLayout:
+		GridLayout:
 			id: button_panel
 			size_hint: 1, .5
 			padding: dp(18)
 			spacing: dp(18)
 			cols: 3
+			rows: 2
 			canvas.before:
 				Color:
-					rgb: utils.get_color_from_hex('#CCCCCC')
-				Rectangle:
+					rgb: utils.get_color_from_hex('#F4F0F6')
+				RoundedRectangle:
 					pos: self.pos
 					size: self.size
+					radius: [dp(18), dp(18), dp(18), dp(18)]
 			TextBoxLogin:
 				pos_hint: {'top': 1}
 				TxtInput:
+					id: _sigma
 					hint_text: 'Sigma value'
+					on_text_validate: app.processor.set_params(_sigma.text, _layers.text)
+					input_filter: 'float'
 			TextBoxLogin:
 				pos_hint: {'top': 1}
 				TxtInput:
+					id: _layers
 					hint_text: 'Number of layers'
+					on_text_validate: app.processor.set_params(_sigma.text, _layers.text)
+					input_filter: 'int'
 			MDRoundFlatIconButton:
 				pos_hint: {'top': 1}
 				md_bg_color: 'CBB4D6'
@@ -54,15 +72,26 @@
 				icon: 'auto-fix'
 				text: 'Laplasify'
 				font_size: '18dp'
-				on_press: app.BuildPyramid()
+				on_press: app.TriggerBuilding()
+			MDRoundFlatIconButton:
+				pos_hint: {'top': 1}
+				md_bg_color: 'CBB4D6'
+				line_color: 'CBB4D6'
+			    text_color: 'FFFFFF'
+			    icon_color: 'FFFFFF'
+				icon: 'content-save'
+				text: 'Save'
+				font_size: '18dp'
+				on_press: app.SaveImages()
 	ScrollView:
 		size_hint: 0.5, 1
 		canvas.before:
 			Color:
-				rgb: utils.get_color_from_hex('#DDDDDD')
-			Rectangle:
+				rgb: utils.get_color_from_hex('#F4F0F6')
+			RoundedRectangle:
 				pos: self.pos
 				size: self.size
+				radius: [dp(18), dp(18), dp(18), dp(18)]
 		MDBoxLayout:
 			id: result_scroll
 			adaptive_height: True
