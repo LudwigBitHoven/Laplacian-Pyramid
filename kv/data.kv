@@ -26,6 +26,8 @@
 			id: image_panel
 			size_hint: 1, .5
 			padding: dp(18)
+			spacing: dp(9)
+			orientation: 'vertical'
 			canvas.before:
 				Color:
 					rgb: utils.get_color_from_hex('#F4F0F6')
@@ -35,6 +37,16 @@
 					radius: [dp(18), dp(18), dp(18), dp(18)]
 			MainImg:
 				id: img_frame
+			MDRoundFlatIconButton:
+				pos_hint: {'top': 1, 'center_x': .5}
+				md_bg_color: 'CBB4D6'
+				line_color: 'CBB4D6'
+			    text_color: 'FFFFFF'
+			    icon_color: 'FFFFFF'
+				icon: 'content-save'
+				text: 'Save'
+				font_size: '18dp'
+				on_press: app.SaveImages()
 		GridLayout:
 			id: button_panel
 			size_hint: 1, .5
@@ -73,16 +85,6 @@
 				text: 'Laplasify'
 				font_size: '18dp'
 				on_press: app.TriggerBuilding()
-			MDRoundFlatIconButton:
-				pos_hint: {'top': 1}
-				md_bg_color: 'CBB4D6'
-				line_color: 'CBB4D6'
-			    text_color: 'FFFFFF'
-			    icon_color: 'FFFFFF'
-				icon: 'content-save'
-				text: 'Save'
-				font_size: '18dp'
-				on_press: app.SaveImages()
 	ScrollView:
 		size_hint: 0.5, 1
 		canvas.before:
