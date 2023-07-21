@@ -1,0 +1,7 @@
+scikit-image==0.19.3
+scipy==1.7.3
+plyer==2.1.0
+numpy==1.21.6
+Pillow==9.4.0
+kivymd==1.1.1
+kivy==2.2.0
