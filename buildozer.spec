@@ -13,7 +13,7 @@ package.name = LaplacifyApp
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,ttf,txt,json,xml
+source.include_exts = py,png,jpg,kv,atlas,ttf
 
 # (list) List of inclusions using pattern matching
 #source.include_patterns = assets/*,images/*.png
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = kivy==master,https://github.com/kivymd/KivyMD/archive/master.zip,pillow==9.4.0, kivy_garden.mapview, charset_normalizer, chardet, idna, android, plyer
+requirements = kivy==master,https://github.com/kivymd/KivyMD/archive/master.zip,pillow==9.4.0, charset_normalizer, chardet, idna, android, plyer, numpy, scipy
 
 
 # (str) Custom source folders for requirements
@@ -45,10 +45,10 @@ requirements = kivy==master,https://github.com/kivymd/KivyMD/archive/master.zip,
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-presplash.filename = %(source.dir)logo.png
+presplash.filename = %(source.dir)s/kv/logo.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/data/appicon.png
+icon.filename = %(source.dir)s/kv/logo.png
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
@@ -96,7 +96,7 @@ android.presplash_color = #FFFFFF
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-android.permissions = android.permission.INTERNET, android.permission.READ_EXTERNAL_STORAGE, android.permission.WRITE_EXTERNAL_STORAGE
+android.permissions = android.permission.READ_EXTERNAL_STORAGE, android.permission.WRITE_EXTERNAL_STORAGE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
@@ -237,7 +237,7 @@ android.minapi = 21
 #android.ouya.icon.filename = %(source.dir)s/data/ouya_icon.png
 
 # (str) XML file to include as an intent filters in <activity> tag
-android.manifest.intent_filters = intent_filters.xml
+# android.manifest.intent_filters = intent_filters.xml
 
 # (list) Copy these files to src/main/res/xml/ (used for example with intent-filters)
 #android.res_xml = PATH_TO_FILE,
